@@ -1,0 +1,83 @@
+---
+import Band from "./band.astro";
+import profilePic from '../images/emil.png';
+import { Image } from "astro:assets";
+---
+
+<div class="relative container mx-auto px-6 py-4 my-4 ">
+   <div class="flex justify-center mb-8 relative">
+        <div class="w-48 h-48 rounded-full border-black border-2 bg-gradient-to-r from-[#ffb347] to-[#ffcc33] absolute animate-spin animate-container"></div>
+        <Image 
+            src={profilePic} 
+            width={480}
+            height={480}
+            loading="eager"
+            alt="Emil Kantaneva in a boonie hat, with a backpack" 
+            class="w-48 h-48 rounded-full object-cover relative animate-profile"/>
+    </div>
+
+    <header class="mb-8 text-center">
+        <h1 class="text-6xl font-bold mb-2">Emil Kantaneva</h1>
+        <p class="text-2xl italic">A Full-stack Web Developer</p>
+    </header>
+
+    <section class="">
+        <Band/>
+    </section>
+
+    <section class="text-xl text-center max-w-4xl mx-auto bg-[#262523] rounded-lg p-6">
+        <p class=" py-2">
+            Hey there! 👋 I'm Emil, a full-stack developer currently crafting ad tech solutions at Alma Media. 
+            With a background in accounting and a degree in Software Engineering, I bring a unique blend of business acumen and technical expertise to the table.
+        </p>
+        
+        <p class="">
+            My tech journey has led me from crunching numbers to crunching code, and I'm loving every minute of it. 
+            These days, you'll find me working with React, TypeScript, and Node.js, building solutions that handle millions of ad impressions daily.
+        </p>
+    
+        <p class="text-lg italic py-6">
+            Scroll down to explore my journey and see what I've been up to!
+        </p>
+        </section>
+</div>
+
+
+<style>
+    @keyframes profile-image-animation {
+        0% {
+            opacity: 0;
+            transform: scale(0%);
+        }
+        75% {
+            opacity: 1;
+            transform: scale(120%);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(100%);
+        }
+    }
+
+    @keyframes profile-container-animation {
+        0% {
+            transform: scale(0%);
+        }
+        75% {
+            transform: scale(120%);
+        }
+        100% {
+            transform: scale(100%);
+        }
+    }
+
+    .animate-profile {
+        animation: profile-image-animation 0.5s ease-in forwards;
+        opacity: 0;
+    }
+
+    .animate-container {
+        animation: profile-container-animation 0.5s ease-in forwards;
+        opacity: 1;
+    }
+</style>

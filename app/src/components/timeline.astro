@@ -1,0 +1,61 @@
+---
+import { Image} from "astro:assets";
+
+const timelineEvents = [
+    {
+        year: "1998",
+        decade : "90s",
+        title: "Hello World! 👶",
+        description: "Born ready to tinker with tech.",
+    },
+    {
+        year: "2000s",
+        decade : "00s",
+        title: "First Contact with Tech",
+        description: "Started tinkering with computers and writing my first HTML pages",
+        image : "/src/images/emil_kid_on_pc.jpg",
+        imageAlt : "Me sitting in front of a computer, in early 2000s, on the computer screen there is a racing game."
+    },
+    {
+        year: "2020",
+        decade : "10s",
+        title: "University Journey",
+        description: "Computer Science studies, discovering the vast world of programming",
+    },
+    {
+        year: "2023",
+        decade : "20s",
+        title: "Professional Developer",
+        description: "Started to actually get paid from doing this. Still can't belive it.",
+    },
+    {
+        year: "Present",
+        decade : "20s",
+        title: "AdTech Developer at Alma Media",
+        description: "Working on full-stack development and advertising technology solutions",
+    },
+];
+---
+
+<div class="relative container mx-auto md:px-6 md:py-10 py-4 px-2">
+    <div class="absolute hidden md:block left-1/2 w-0.5 h-[95%] bg-[#ffcc33]"></div>
+    <div class="absolute block md:hidden left-8 w-0.5 h-[95%] bg-[#ffcc33]"></div>
+
+    {timelineEvents.map((event, index) => (
+<div class={`relative flex md:items-center md:justify-between mb-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>            <div class="w-5/12"></div>
+<div class="absolute md:left-1/2 left-0 md:transform md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#ffb347] border-2">            </div>
+            <div class="md:w-5/12 w-full">
+                <div class="md:p-6 p-4 rounded-lg shadow-lg bg-[#262523]">
+                    <span class="text-sm font-semibold text-[#ffcc33]">{event.year}</span>
+                    <h3 class="text-xl font-bold mt-1">{event.title}</h3>
+                    <p class=" mt-2">{event.description}</p>
+                    {event?.image && 
+                        <div class="py-4">
+                            <Image src={event.image} width={300} height={300} alt={event.imageAlt} class="rounded-lg w-full" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    ))}
+</div>

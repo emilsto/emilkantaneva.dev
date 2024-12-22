@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+
+const technologies = [
+    { name: 'JavaScript', logo: 'https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E' },
+    { name: 'TypeScript', logo: 'https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white' },
+    { name: 'React', logo: 'https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB' },
+    { name: 'Node.js', logo: 'https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white' },
+    { name: 'Python', logo: 'https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54' },
+    { name: 'Docker', logo: 'https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white' },
+    { name: 'AWS', logo: 'https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white' },
+    { name: 'Git', logo: 'https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white' }
+];
+---
+
+<div class="relative overflow-hidden">
+    <div class="flex animate-scroll">
+        {[...technologies, ...technologies].map((tech, index) => (
+            <div class="flex-none mx-8 group relative" data-key={`${tech.name}-${index}`}>
+                <Image
+                    src={tech.logo} 
+                    alt={`${tech.name} logo`}
+                    width={64}
+                    height={64}
+                    class="h-32 w-32 object-contain transition-transform group-hover:scale-110"
+                />
+                <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap
+                           opacity-0 group-hover:opacity-100 transition-opacity
+                           text-white text-sm">
+                    {tech.name}
+                </span>
+            </div>
+        ))}
+    </div>
+</div>
+
+<style>
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-scroll {
+        animation: scroll 10s linear infinite;
+    }
+
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+</style>

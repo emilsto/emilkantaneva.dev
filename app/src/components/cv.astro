@@ -1,0 +1,167 @@
+---
+import { Image } from 'astro:assets'
+import profilePic from '../images/emil.png';
+
+interface workExperiecnce  {
+    period : string
+    company : string
+    title : string
+    description : string
+}
+const workExperience : workExperiecnce[] = [
+    {
+        period: "2023 - Present",
+        company: "Alma Media",
+        title: "AdTech Developer",
+        description: "Started as a trainee here in 2023, and in 2024 they decided to keep as a full-time developer. Lucky me! Focusing on full-stack development of advertising technology solutions using React, TypeScript, and Node.js. Contributed to improving ad delivery systems, implementing new features, and optimizing existing solutions. Collaborated with cross-functional teams to enhance digital advertising platforms serving millions of impressions daily."
+    },
+    {
+        period: "2021",
+        company : "Tampere Universities",
+        title : "IT Helpdesk",
+        description : "Helped staff and students with IT related issues, such as setting up their computers, installing software, troubleshooting, and other IT related issues."
+    },
+    {
+        period: "2018 - 2020",
+        company: "Isännöintitoimisto iMasa Ky",
+        title: "Accountant",
+        description: "The tasks of an accountant, including day-to-day accounting and financial reporting, taxes and tax returns, payroll, financial statements, and maintenance of Visma Fivaldi based online environment."
+    },
+    {
+        period: "2017",
+        company: "Isännöintitoimisto iMasa Ky",
+        title: "Accountant",
+        description: "Summer position as an accountant before military service. Handled day-to-day accounting, financial reporting, taxes, and Visma Fivaldi system maintenance."
+    },
+];
+
+const education = [
+    {
+        period: "2020 - 2024",
+        institution: "Tampere University of Applied Sciences",
+        degree: "Bachelor's degree in Information Technology and Software Engineering.",
+        description: " The degree included courses in programming, AI, networking, security, databases, and other IT related topics. The degree also included courses in business, project management, and other non-IT related topics."
+    },
+    {
+        period: "2014 - 2017",
+        institution: "Salpaus Further Education",
+        degree: "Vocational Qualification in Business and Administration",
+        description: "The qualification included courses in business, accounting, and other business related topics."
+    }
+];
+
+interface Skill {
+    name: string;
+    color: string;
+};
+
+const skills: Skill[] = [
+    { name: "JavaScript", color: "#F7DF1E" },
+    { name: "TypeScript", color: "#3178C6" },
+    { name: "React", color: "#61DAFB" },
+    { name: "Node.js", color: "#339933" },
+    {name : "Go", color : "#00ADD8"},
+    { name: "AWS", color: "#FF9900" },
+    { name: "Docker", color: "#2496ED" },
+    { name: "Git", color: "#F05032" },
+    { name: "CI/CD", color: "#4A154B" },
+    { name: "Agile Development", color: "#83CD29" },
+];
+const languages = [
+    { name: "Finnish", level: "Native" },
+    { name: "English", level: "Fluent" },
+];
+---
+
+<div class="relative container mx-auto px-6 py-4 my-4 shadow-lg rounded-lg bg-[#262523] text-lg">
+    <!-- Header -->
+    <header class="mb-8 border-b pb-8 flex flex-row justify-between">
+        <section>
+        <h1 class="text-4xl font-bold mb-2 text-[#ffb347]">Emil Kantaneva</h1>
+        <p class="text-xl text-[#ffcc33]">Full-stack Developer</p>
+        <div class="mt-4 ">
+            <p>emil.kantaneva@gmail.com</p>
+            <p>+358 400 628825</p>
+            <p>Helsinki, Finland</p>
+        </div>
+    </section>
+
+        <section class="relative">
+            <div class="md:w-48 md:h-48 w-32 h-32 rounded-full border-black border-2 bg-gradient-to-r from-[#ffb347] to-[#ffcc33] animate-spin"></div>
+            <Image 
+            src={profilePic}
+            alt="Profile picture"
+            width={192}
+            height={192}
+            class="md:w-48 md:h-48 w-32 h-32 rounded-full object-cover absolute top-0 left-0"
+        />        </section>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="mb-8 pb-8 border-b">
+        <h2 class="text-2xl font-semibold  mb-4">About me</h2>
+        <p class="">
+            Full-stack developer currently working with advertising technology solutions, 
+            deliviring ad-experiences to millions of finns every week. 
+            Background in web development and scalable systems. Always exploring for new frontiers of tech
+            and cool ways to integrate that to actual projects and products.
+        </p>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="mb-8 pb-8 border-b">
+        <h2 class="text-2xl font-semibold  mb-4">Work Experience</h2>
+        {workExperience.map(job => (
+            <div class="mb-6">
+                <div class="flex justify-between items-baseline">
+                    <h3 class="text-xl font-semibold text-[#ffcc33]">{job.title}</h3>
+                    <span class="text-[#ffcc33]">{job.period}</span>
+                </div>
+                <p class=" font-medium">{job.company}</p>
+                <p class=" mt-2">{job.description}</p>
+            </div>
+        ))}
+    </section>
+
+    <!-- Education -->
+    <section class="mb-8 pb-8 border-b">
+        <h2 class="text-2xl font-semibold mb-4">Education</h2>
+        {education.map(edu => (
+            <div class="mb-6">
+                <div class="flex justify-between items-baseline">
+                    <h3 class="text-xl font-semibold text-[#ffcc33] ">{edu.degree}</h3>
+                    <span class="text-[#ffcc33]">{edu.period}</span>
+                </div>
+                <p class=" font-medium">{edu.institution}</p>
+                <p class=" mt-2">{edu.description}</p>
+            </div>
+        ))}
+    </section>
+
+    <!-- Skills -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold  mb-4">Tech Buzzwords</h2>
+        <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2">
+                {skills.map(skill => (
+                <div class="rounded-lg px-2 hover:scale-110 cursor-help" style={`background-color: ${skill.color}`}>
+                                <h3 class="text-lg">{skill.name}</h3>
+                        </div>
+                ))}
+              </div>
+        </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold  mb-4">Languages</h2>
+        <div class="flex flex-wrap gap-4">
+            {languages.map(lang => (
+                <div class="flex items-center gap-2">
+                    <span class="font-medium ">{lang.name}:</span>
+                    <span class="">{lang.level}</span>
+                </div>
+            ))}
+        </div>
+    </section>
+</div>

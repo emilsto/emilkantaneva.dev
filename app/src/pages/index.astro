@@ -1,0 +1,23 @@
+---
+import Aboutme from '../components/aboutme.astro';
+import Cv from '../components/cv.astro';
+import Timeline from "../components/timeline.astro";
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout>
+	<main class="snap-y snap-mandatory overflow-y-scroll h-screen">
+		<section id="about" class="min-h-screen snap-start flex items-center justify-center">
+		  <Aboutme/>
+		</section>
+		
+		<section id="me" class="min-h-screen snap-start flex items-center justify-center">
+		  <Timeline/>
+		</section>
+	
+		<section id="cv" class="min-h-screen snap-start flex items-center justify-center">
+		  <Cv/>
+		</section>
+	  </main>
+  </Layout>
