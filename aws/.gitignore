@@ -1,0 +1,19 @@
+!jest.config.js
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+node_modules
+
+/.cache
+/public/build
+/public/static
+/server/index.mjs
+/server/index.mjs.map
+/server/metafile.*
+/server/version.txt
+preferences.arc
+sam.json
+sam.yaml
+.env
